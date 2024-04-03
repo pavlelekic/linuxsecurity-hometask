@@ -2,11 +2,4 @@ html,
 body,
 #root {
   height: 100%;
-  overflow: hidden;
-}
-
-.vertically-scrollable {
-  height: 100%;
-  overflow-x: hidden;
-  overflow-y: scroll;
 }

@@ -1,32 +1,22 @@
 import React from "react";
+import { SidebarPushable, Container } from "semantic-ui-react";
 import TopMenu from "./components/TopMenu";
 import LeftMenu from "./components/LeftMenu";
 import WeatherDisplay from "./pages/WeatherDisplay";
+import "./App.css";
 
 const App = () => {
+  const [isSidebarVisible, setIsSidebarVisible] = React.useState(true);
+
   return (
     <React.Fragment>
-      <TopMenu />
-      <div
-        style={{
-          marginTop: "40px",
-          height: "calc(100% - 40px)",
-          overflow: "hidden",
-          display: "flex",
-          flexWrap: "nowrap",
-        }}
-      >
-        <LeftMenu />
-        <div
-          className="vertically-scrollable"
-          style={{
-            flexGrow: 1,
-            background: "rgb(229, 229, 229)",
-          }}
-        >
+      <TopMenu setIsSidebarVisible={setIsSidebarVisible} />
+      <SidebarPushable>
+        <LeftMenu isSidebarVisible={isSidebarVisible} />
+        <div className="main-content">
           <WeatherDisplay />
         </div>
-      </div>
+      </SidebarPushable>
     </React.Fragment>
   );
 };
