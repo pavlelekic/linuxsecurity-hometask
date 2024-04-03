@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import TopMenu from "./components/TopMenu";
+import LeftMenu from "./components/LeftMenu";
+import WeatherDisplay from "./pages/WeatherDisplay";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <React.Fragment>
+      <TopMenu />
+      <div
+        style={{
+          marginTop: "40px",
+          height: "calc(100% - 40px)",
+          overflow: "hidden",
+          display: "flex",
+          flexWrap: "nowrap",
+        }}
+      >
+        <LeftMenu />
+        <div
+          className="vertically-scrollable"
+          style={{
+            flexGrow: 1,
+            background: "rgb(229, 229, 229)",
+          }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <WeatherDisplay />
+        </div>
+      </div>
+    </React.Fragment>
   );
-}
+};
 
 export default App;
