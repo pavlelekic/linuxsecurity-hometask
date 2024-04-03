@@ -1,5 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { Card, Icon, Label, Header, Container } from "semantic-ui-react";
+import {
+  Card,
+  Icon,
+  Label,
+  Header,
+  Container,
+  Dimmer,
+  Loader,
+} from "semantic-ui-react";
 
 const WeatherDisplay = () => {
   const [weatherData, setWeatherData] = useState(null);
@@ -37,7 +45,11 @@ const WeatherDisplay = () => {
   }
 
   if (!weatherData) {
-    return <div>Loading...</div>;
+    return (
+      <Dimmer active inverted>
+        <Loader>Loading...</Loader>
+      </Dimmer>
+    );
   }
 
   const { main, weather } = weatherData;
