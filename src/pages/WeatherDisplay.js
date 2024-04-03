@@ -6,6 +6,7 @@ const WeatherDisplay = () => {
   const [error, setError] = useState(null);
 
   const fetchData = async () => {
+    console.log("fetching weather data...");
     try {
       const response = await fetch(
         `https://api.openweathermap.org/data/2.5/weather?q=Paris&appid=${process.env.REACT_APP_OPENWEATHERMAP_API_KEY}&units=metric`
@@ -22,6 +23,8 @@ const WeatherDisplay = () => {
 
   useEffect(() => {
     fetchData();
+    const intervalId = setInterval(fetchData, 30000);
+    return () => clearInterval(intervalId);
   }, []);
 
   if (error) {
