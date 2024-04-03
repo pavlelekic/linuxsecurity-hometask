@@ -1,5 +1,6 @@
 :root {
   --sidebar-width: 15rem;
+  --topbar-height: 2.9rem;
 }
 
 .main-content {
@@ -8,8 +9,8 @@
 
 .ui.vertical.menu.sidebar-menu,
 .main-content {
-  margin-top: 40px !important;
-  height: calc(100% - 40px) !important;
+  margin-top: var(--topbar-height) !important;
+  height: calc(100% - var(--topbar-height)) !important;
 }
 
 @media (min-width: 768px) {
