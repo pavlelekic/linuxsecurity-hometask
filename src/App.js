@@ -6,7 +6,7 @@ import WeatherDisplay from "./pages/WeatherDisplay";
 import "./App.css";
 
 const App = () => {
-  const [isSidebarVisible, setIsSidebarVisible] = React.useState(true);
+  const [isSidebarVisible, setIsSidebarVisible] = React.useState(false);
 
   return (
     <React.Fragment>
