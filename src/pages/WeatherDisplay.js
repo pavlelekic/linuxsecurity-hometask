@@ -3,6 +3,7 @@ import {
   Card,
   Icon,
   Label,
+  Grid,
   Header,
   Container,
   Dimmer,
@@ -14,7 +15,6 @@ const WeatherDisplay = () => {
   const [error, setError] = useState(null);
 
   const fetchData = async () => {
-    console.log("fetching weather data...");
     try {
       const response = await fetch(
         `https://api.openweathermap.org/data/2.5/weather?q=Paris&appid=${process.env.REACT_APP_OPENWEATHERMAP_API_KEY}&units=metric`
@@ -37,10 +37,10 @@ const WeatherDisplay = () => {
 
   if (error) {
     return (
-      <div className="error-container">
+      <Container textAlign="center">
         <Icon name="exclamation circle" color="red" size="big" />
-        <div className="error-message">{error}</div>
-      </div>
+        <p>{error}</p>
+      </Container>
     );
   }
 
